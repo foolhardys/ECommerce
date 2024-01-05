@@ -1,17 +1,22 @@
 const Product = require('../models/productModel')
 const ErrorHandler = require('../utils/errorHandler')
+const ApiFeatures = require('../utils/apiFeatures')
 
 
 // Get all products
-const getAllProducts = async (req, res) => {
+const getAllProducts = async (req, res, next) => {
     try {
-        const products = await Product.find({})
+        const resultPerPage = 10
+        const productsCount = await Product.countDocuments();
+        const apiFeature = new ApiFeatures(Product.find({}), req.query).search().filter().pagination(resultPerPage)
+        const products = await apiFeature.query
         res.status(200).json({
             success: true,
-            products
+            products,
+            productsCount
         })
     } catch (error) {
-        res.send(error.message)
+        next(new ErrorHandler('Cannot read properties of undefined ', 500))
     }
 
 }
