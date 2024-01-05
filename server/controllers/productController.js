@@ -30,7 +30,7 @@ const createProduct = async (req, res, next) => {
             product
         })
     } catch (error) {
-        res.send(error.message)
+        next(new ErrorHandler("Please enter Name/Description/Category", 400))
     }
 }
 
