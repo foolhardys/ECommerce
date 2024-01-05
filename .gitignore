@@ -1,27 +1,27 @@
 
 # dependencies
-/node_modules
-/frontend/node_modules
-/frontend/.pnp
-/frontend/.pnp.js
+/server/node_modules
+/client/node_modules
+/client/.pnp
+/client/.pnp.js
 
 # testing
-/frontend/coverage
+/client/coverage
 
 # production
-/frontend/build
+/client/build
 
 # misc
 .env
 
 # dependencies
-/node_modules
-/frontend/node_modules
-/frontend/.pnp
-/frontend/.pnp.js
+/server/node_modules
+/client/node_modules
+/client/.pnp
+/client/.pnp.js
 
 # testing
-/frontend/coverage
+/client/coverage
 
 # production
 /frontend/build
